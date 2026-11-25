@@ -1,0 +1,52 @@
+\section{Basis parametrization}
+\label{sec:appendix_basis_parametrization}
+
+To reduce the dimensionality of the basis search, and to give the basis a canonical ordering, each basis point is constrained so that it maps onto exactly one coupling combination of Eq.~\eqref{eq:smeftpara_reorg}. The resulting minimal basis has the form:
+
+\begin{multline}\Bigl[ \begin{bmatrix} 0, & 0, & 0, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\,
+ \begin{bmatrix} A_{1}, & 0, & 0, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\ %c_H
+ \begin{bmatrix} 0, & A_{2}, & 0, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, % c_{K,kin}
+ \begin{bmatrix} 0, & 0, & A_{3}, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\ % c_{tH}
+ \begin{bmatrix} 0, & 0, & 0, & A_{4}, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, % c_{HG}
+ \begin{bmatrix} 0, &  0, & 0, &  0, & A_{5}, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\% c_{tG}
+ \begin{bmatrix} 0, &  0, &  0, &  0, & 0, & A_{6}, & 0, & 0, & 0  \end{bmatrix},\,  %c_{Qt}
+ \begin{bmatrix} 0, &  0, &  0, &  0, & 0, & 0, & A_{7}, & 0, & 0  \end{bmatrix},\, \\% c_{Qt8}
+ \begin{bmatrix} 0, &  0, &  0, &  0, & 0, & 0, & 0, & A_{8}, & 0  \end{bmatrix},\,  %c_{QQtt}
+ \begin{bmatrix} 0, &  0, &  0, &  0, & 0, & 0, & 0, & 0, & A_{9}  \end{bmatrix},\, \\ % c_{QQ8}
+ \begin{bmatrix} A_{10}, & 0, & 0, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, %c_H^2
+ \begin{bmatrix} A_{11a}, & A_{11b}, & 0, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\ %c_{H}c_{Hkin}
+ \begin{bmatrix} A_{12a}, & 0, & A_{12b}, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, % c_{H}c_{tH}
+ \begin{bmatrix} A_{13a}, & 0, & 0, & A_{13b}, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\ %c_{H}c_{HG}
+ \begin{bmatrix} 0, & A_{14}, & 0, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, % c_{H,kin}^2
+ \begin{bmatrix} 0, &  A_{15a}, & A_{15b}, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\% c_{Hkin}c_{uH}
+ \begin{bmatrix} 0, &  A_{16a}, & 0, & A_{16b}, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\,  %c_{Hkin}c_{HG}
+ \begin{bmatrix} 0, & 0, & A_{17}, & 0, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\ %c_{tH}^2
+\begin{bmatrix} 0, & 0, &  A_{18a}, & A_{18b}, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\,  %c_{tH}c_{HG}
+ \begin{bmatrix} 0, & 0, & 0, & A_{19}, & 0, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\ % c_{Hg}^2
+ \begin{bmatrix} A_{20a}, & 0, & 0, & 0, & A_{20b}, & 0, & 0, & 0, & 0  \end{bmatrix},\, % c_{H}c_{tG}
+ \begin{bmatrix} A_{21a}, & 0, & 0, & 0, & 0, & A_{21b}, & 0, & 0, & 0  \end{bmatrix},\, \\ %c_{H}c_{Qt}
+ \begin{bmatrix} A_{22a}, & 0, & 0, & 0, & 0, & 0, & A_{22b}, & 0, & 0  \end{bmatrix},\, % c_{H}c_{Qt8}
+ \begin{bmatrix} A_{23a}, & 0, & 0, & 0, & 0, & 0, & 0, & A_{23b}, & 0  \end{bmatrix},\, \\ %c_{H}c_{QQtt}
+ \begin{bmatrix} A_{24a}, & 0, & 0, & 0, & 0, & 0, & 0, & 0, & A_{24b}  \end{bmatrix},\, % c_{H}c_{QQ8}
+ \begin{bmatrix} 0, &  A_{25a}, & 0, & 0, & A_{25b}, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\% c_{Hkin}c_{tG}
+ \begin{bmatrix} 0, &  A_{26a}, & 0, & 0, & 0, & A_{26b}, & 0, & 0, & 0  \end{bmatrix},\,  %c_{Hkin}c_{Qt}
+ \begin{bmatrix} 0, &  A_{27a}, & 0, & 0, & 0, & 0, & A_{27b}, & 0, & 0  \end{bmatrix},\, \\% c_{Hkin}c_{Qt8}
+ \begin{bmatrix} 0, &  A_{28a}, & 0, & 0, & 0, & 0, & 0, & A_{28b}, & 0  \end{bmatrix},\,  %c_{Hkin}c_{QQtt}
+ \begin{bmatrix} 0, &  A_{29a}, & 0, & 0, & 0, & 0, & 0, & 0, & A_{29b}  \end{bmatrix},\, \\% c_{Hkin}c_{QQ8}
+ \begin{bmatrix} 0, &  0, &  A_{30a}, & 0, & A_{30b}, & 0, & 0, & 0, & 0  \end{bmatrix},\, % c_{tH}c_{tG}
+ \begin{bmatrix} 0, &  0, &  A_{31a}, & 0, & 0, & A_{31b}, & 0, & 0, & 0  \end{bmatrix},\, \\  %c_{tH}c_{Qt}
+ \begin{bmatrix} 0, &  0, &  A_{32a}, & 0, & 0, & 0, & A_{32b}, & 0, & 0  \end{bmatrix},\, % c_{tH}c_{Qt8}
+ \begin{bmatrix} 0, &  0, &  A_{33a}, & 0, & 0, & 0, & 0, & A_{33b}, & 0  \end{bmatrix},\, \\ %c_{tH}c_{QQtt}
+ \begin{bmatrix} 0, &  0, &  A_{34a}, & 0, & 0, & 0, & 0, & 0, & A_{34b}  \end{bmatrix},\, % c_{tH}c_{QQ8}
+ \begin{bmatrix} 0, &  0, & 0, &  A_{35a}, & A_{35b}, & 0, & 0, & 0, & 0  \end{bmatrix},\, \\% c_{HG}c_{tG}
+ \begin{bmatrix} 0, &  0, &  0, &  A_{36a}, & 0, & A_{36b}, & 0, & 0, & 0  \end{bmatrix},\,  %c_{HG}c_{Qt}
+ \begin{bmatrix} 0, &  0, &  0, &  A_{37a}, & 0, & 0, & A_{37b}, & 0, & 0  \end{bmatrix},\, \\% c_{HG}c_{Qt8}
+ \begin{bmatrix} 0, &  0, &  0, &  A_{38a}, & 0, & 0, & 0, & A_{38b}, & 0  \end{bmatrix},\,  %c_{HG}c_{QQtt}
+ \begin{bmatrix} 0, &  0, &  0, &  A_{39a}, & 0, & 0, & 0, & 0, & A_{39b}  \end{bmatrix},\, % c_{HG}c_{QQ8}
+\Bigl] 
+\end{multline}
+with each basis point parametrized as $\begin{bmatrix} c_\PH, &  c_{\PH,kin}, &  c_{\PQt\PH}, & c_{\PH G}, & c_{\PQt G}, & c_{Q\PQt}^{(1)}, & c_{Q \PQt}^{(8)}, & c_{QQ\PQt\PQt}, & c_{QQ}^{(8)} \end{bmatrix}$
+
+with each basis point in the form of $\begin{bmatrix} c_\PH, & c_{\PH \mathrm{kin}}, & c_{\PQt\PH}, & c_{\PH G}, & c_{\PQt G}, & c_{Q\PQt}^{(1)}, & c_{Q\PQt}^{(8)}, & c_{QQ\PQt\PQt}, & c_{QQ}^{(8)} \end{bmatrix}$.
+
+\textcolor{red}{TODO: this skeleton was carried over from the HEFT study; check the ordering against the coupling combinations actually used in Eq.~\eqref{eq:smeftpara_reorg}.}

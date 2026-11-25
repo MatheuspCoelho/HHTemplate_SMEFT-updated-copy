@@ -1,0 +1,40 @@
+\section{Full SMEFT parameterization}
+\label{sec:appendix_smeft_parameterization}
+
+The same comments applies to the \ggHH process modeled by SMEFT, which can be parameterized in a similar way by the set of coefficients $\mathbf{c}^{\text{SMEFT}}_i=\{c_\PH,c_{\PH kin},c_{\PQt\PH}, c_{\PH G},  c_{\PQt G},\,c_{Q\PQt}^{(1)},c_{Q\PQt}^{(8)},c_{QQ\PQt\PQt},c_{QQ}^{(8)}\}$:
+\begin{align}\label{smeftparams}
+\notag\frac{d}{d\xi_j}\sigma_{\ggHH}(\mathbf{c}^{\text{SMEFT}}_i)&= A^j_0 + A^j_1\,c_{\text{H}} + A^j_2\,c_{\text{H},\mathrm{kin}} + A^j_3\,c_{\PQt\PH} + A^j_4\,c_{\text{H}G}\\\notag
+& + A^j_5\,c_{tG} + A^j_6\,c_{Qt1} + A^j_7\,c_{Qt8}^{} + A^j_8\,c_{QQtt}^{} + A^j_9\,c_{QQ8}\\\notag
+& + A^j_{10}\,c_\text{H} c_{\text{H}\mathrm{kin}} + A^j_{11}\,c_\text{H} c_{\PQt\PH} + A^j_{12}\,c_H c_{\text{H}G} + A^j_{13}\,c_\text{H} c_{tG} + A^j_{14}\,c_\text{H} c_{Qt1}\\
+& + A^j_{15}\,c_\text{H} c_{Qt8}^{} + A^j_{16}\,c_\text{H} c_{QQtt}^{} + A^j_{17}\,c_\text{H} c_{QQ8} + A^j_{18}\,c_{\text{H}\mathrm{kin}} c_{\PQt\PH}\\\notag
+& + A^j_{19}\,c_{\text{H}\mathrm{kin}} c_{\text{H}G} + A^j_{20}\,c_{\text{H}\mathrm{kin}} c_{tG} + A^j_{21}\,c_{\text{H}\mathrm{kin}} c_{Qt1} + A^j_{22}\,c_{\text{H}\mathrm{kin}} c_{Qt8}^{} + A^j_{23}\,c_{\text{H}\mathrm{kin}} c_{QQtt}^{}\\\notag
+& + A^j_{24}\,c_{\text{H}\mathrm{kin}} c_{QQ8} + A^j_{25}\,c_{\PQt\PH} c_{\text{H}G} + A^j_{26}\,c_{\PQt\PH} c_{tG} + A^j_{27}\,c_{\PQt\PH} c_{Qt1} + A^j_{28}\,c_{\PQt\PH} c_{Qt8}^{}\\\notag
+& + A^j_{29}\,c_{\PQt\PH} c_{QQtt}^{} + A^j_{30}\,c_{\PQt\PH} c_{QQ8} + A^j_{31}\,c_{\text{H}G} c_{tG} + A^j_{32}\,c_{\text{H}G} c_{Qt1} + A^j_{33}\,c_{\text{H}G} c_{Qt8}^{}\\\notag
+& + A^j_{34}\,c_{\text{H}G} c_{QQtt}^{} + A^j_{35}\,c_{\text{H}G} c_{QQ8} + A^j_{36}\,c_\text{H}^2 + A^j_{37}\,c_{\text{H}\mathrm{kin}}^2 + A^j_{38}\,c_{\PQt\PH}^2 + A^j_{39}\,c_{\text{H}G}^2 \\\notag
+    \label{eq:smeftpara}
+\end{align}
+The set of dimension-6 operators described in this Lagrangian can be separated into two classes: leading operators, with Wilson coefficients $\{c_{\PH\Box},\,c_{\PH D},\,c_\PH,\,c_{\PQt},\,c_{\PH G}\}$, and subleading, with $\{c_{\PQt G},\,c_{Q\PQt}^{(1)},\,c_{Q\PQt}^{(8)},\,c_{QQ}^{(1)},\,c_{QQ}^{(8)},\,c_{\PQt\PQt}\}$. By "subleading", we intend operators entering only in loop-induced diagrams, hence carrying an implicit loop factor $L=(16\pi^2)^{-1}$. 
+This setup considers SM+linear dimension-6+quadratic dimension-6 contributions for leading operators at the cross section level, while subleading operators enter only linearly---therefore, $|\mathcal{M}_{\text{dim6}}^{\text{sublead}}|^2$ is neglected, and only interference terms with the leading part is considered. Furthermore, $c_{QQ}^{(1)}$ and $c_{\PQt\PQt}$ are combined into a single parameter $c_{QQ\PQt\PQt}=c_{QQ}^{(1)}+c_{\PQt\PQt}$, as their contributions to the amplitude can be factorized.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{cc|cc|cc|cc}
+\hline
+$\widetilde{A}^j_k$ & $A^j_m$ & $\widetilde{A}^j_k$ & $A^j_m$ & $\widetilde{A}^j_k$ & $A^j_m$ & $\widetilde{A}^j_k$ & $A^j_m$ \\
+\hline
+0 & 0 & 1 & 1 & 2 & 2 & 3 & 3 \\
+4 & 4 & 5 & 36 & 6 & 10 & 7 & 11 \\
+8 & 12 & 9 & 37 & 10 & 18 & 11 & 19 \\
+12 & 38 & 13 & 25 & 14 & 39 & 15 & 5 \\
+16 & 6 & 17 & 7 & 18 & 8 & 19 & 9 \\
+20 & 13 & 21 & 14 & 22 & 15 & 23 & 16 \\
+24 & 17 & 25 & 20 & 26 & 21 & 27 & 22 \\
+28 & 23 & 29 & 24 & 30 & 26 & 31 & 27 \\
+32 & 28 & 33 & 29 & 34 & 30 & 35 & 31 \\
+36 & 32 & 37 & 33 & 38 & 34 & 39 & 35 \\
+\hline
+\end{tabular}
+\caption{Translation between the renumbered coefficients $\widetilde{A}^j_k$ of the rearranged parameterization in Eq.~\eqref{eq:smeftpara_reorg} and the original coefficients $A^j_m$ of Eq.~\eqref{smeftparams}.}
+\label{tab:smeft_index_translation}
+\end{table}

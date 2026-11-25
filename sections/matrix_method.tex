@@ -1,0 +1,101 @@
+\section{The matrix method and the choice of basis}
+\label{sec:matrix}
+
+\label{sec:matrixmethod}
+
+Reweighting removes the cost of simulating each parameter point, but not the cost of pushing each resulting template through the full experimental analysis chain, which remains prohibitive for a scan over nine Wilson coefficients. The matrix method removes that second cost, allowing, for instance, shape systematic uncertainties to be evaluated only over a subset of basis points (BPs) and then extrapolated to the full theory space. Since the cross section is linear in the $A$-coefficients, any (differential) cross section can be rewritten as a linear combination of the cross sections at a fixed set of BPs,
+\begin{equation}
+    \sigma_\ggHH(\mathbf{c})=\vec{c}^{\,\top}(\mathbf{c})\cdot C^{-1}(\mathbf{c}^\prime_1,\,\mathbf{c}^\prime_2,\,\cdots)\cdot\vec{\sigma}_\ggHH(\mathbf{c}^\prime_1,\,\mathbf{c}^\prime_2,\,\cdots)\;,
+    \label{eq:matrixmethod}
+\end{equation}
+where $C$ is the matrix of coupling terms evaluated at the BPs. Only those basis templates then have to be processed through the analysis, and every other point of the parameter space is obtained as a linear combination of them. With the 40 coupling combinations of Eq.~\eqref{eq:smeftpara_reorg}, a minimal basis consists of 40 points. While the matrix method is also discussed in Refs.~\cite{HH_nonggf_R5,HHMatrix_R5}, here the goal is to find an appropriate set of 40 BPs in SMEFT. In view of the aforementioned references, two approaches can be listed:
+
+\begin{itemize}
+    \item Ref.~\cite{HHMatrix_R5} uses the $A$-coefficients to throw \emph{toy} \mHH templates, and then searches the BPs with a particle swarm optimization over a continuous hyperparameter space. This is the appropriate choice when no sample set exists yet, as the $A$-coefficients provide a cheap way to produce $m_{\HH}$ shapes. No simulation needed.
+    \item Ref.~\cite{HH_nonggf_R5} scores candidate bases directly on \emph{simulated} samples, and searches by iteratively exchanging one basis point at a time among the available samples. %This is the appropriate choice when a large set of simulated samples already exists.
+\end{itemize}
+
+We follow the approach of Ref.~\cite{HH_nonggf_R5} here, for two reasons. First, the samples needed are already available: the same $4500$ SMEFT samples generated at $13.6$~TeV for the extraction of the $A$-coefficients in Sec.~\ref{sec:extraction} can be reused as input to the basis search and as target distributions, as well as for validation purposes. Second, the LHE-based evaluation allows for an easy treatment of the statistical error, which are otherwise emulated in the toys used in Ref.~\cite{HHMatrix_R5}.
+
+
+%Ref.~\cite{HHMatrix_R5} found that the toy-based templates, being built from a simplified model of the process, do not reproduce the statistical behaviour of genuine events: the relative statistical error evaluated on toys is systematically shifted with respect to the one evaluated on LHE events, and the LHE-based evaluation is the more faithful of the two. Since the statistical term is one of the quantities the basis search is meant to control, scoring directly on LHE events avoids optimizing against a proxy. It also makes the closure uncertainty of Sec.~\ref{sec:uncertainties} derivable differentially, which the toy-based route does not allow.
+
+%\subsection{Basis optimization and two-dimensional scan planes}
+%\label{sec:basisopt}
+
+%The basis search follows Refs.~\cite{HHMatrix_R5,HH_nonggf_R5} and we only recall its ingredients. 
+
+Candidate bases are ranked by a total score combining three closure terms: a shape term built from the cumulative-distribution and Hellinger distances between the generated and interpolated spectra, a rate term on the inclusive cross section, and a bin-by-bin term taking the 90th percentile of the per-bin relative errors. Then, three stability penalties are set: the condition number of the scaled basis matrix, the magnitude of the interpolation weights, and the fraction of negative interpolated bins. The search itself starts from several seed configurations and proceeds by exchanging one basis point at a time, accepting an exchange when it improves the total score, with the best seed retained.
+
+
+Provided the cross section terms are given by linear and quadratic pieces, we restrict the BPs to be at most two-dimensional and use the 2D points mentioned in Table~\ref{tab:grids_comp} as the parameter space seeding the BP search---then every one of the $40$ points of the recommended basis lies in a plane, with thirty-nine having exactly two non-zero coefficients and one being the SM. All the remaining samples varying more than two Wilson coefficients are used as targets to which every candidate basis is scored against. In order to test the 2D scan approach, we allow a few exceptions with more than two non-zero Wilson coefficients and compare the results with the basis containing only 2D BPs. The latter outperforms other alternatives in the relevant metrics (condition number, median shape residual, etc) and is therefore the chosen approach. Additional comments concerning overdetermined bases, the trajectory of different seeds, and so on, are discussed in Appendix~\ref{sec:appendix_basis_search}.
+
+Experimental analyses are often designed to also cover other SMEFT truncations and operators, requiring dedicated bases tunned to each of the probed scenarios. For instance, a modeling covering only the leading operators in the quadratic truncation would require 15 BPs, and those can be achieved with a similar approach to the one described in this Section. In view of that, dedicated BPs were also derived for the following cases: linear truncation and leading operators, quadratic truncation and leading operators, quadratic truncation and leading operators plus the chromomagnetic operator. In the following Sections, however, we focus on the 40 BPs required for SMEFT at the quadratic truncation with all the subleading operators.
+
+%\subsection{Restricting the basis to the two-dimensional scan planes}
+%\label{sec:basis_planes}
+
+%Most points of the grids of Sec.~\ref{tab:grids_comp} lie in one of the $\binom{9}{2}$ planes
+%in which a single pair of coefficients is varied with the rest at their SM values, and we
+%require the basis points to be drawn from those planes. The restriction is on
+%\emph{membership} alone --- on which samples may enter a basis, not on which are used to
+%find it. The off-plane samples, two thirds of the grid, are the targets every candidate
+%basis is scored against, and they are what decides which basis is chosen. The restriction
+%is not an approximation: no monomial of Eq.~\eqref{eq:smeftpara_reorg} involves more than two
+%distinct coefficients, so a set of points each activating at most two of them is not
+%structurally degenerate.
+
+
+
+%%%%%%%%%
+
+%What decides this is the number of distinct couplings a single term contains, not the
+%degree. A point that activates two couplings gives a non-zero value only to
+%monomials built from those two, so a monomial involving three distinct couplings would
+%leave an identically zero column in the design matrix and no set of two-coupling points
+%could span the space. A high power of one coupling is no obstacle; a product of three is.
+
+%The dimension-6 cross section is an interference and a square of amplitudes each linear
+%in the Wilson coefficients, so every monomial here involves at most two of them, and the
+%restriction is exact. The HEFT parameterization of the same process does not have that
+%structure: its terms reach three distinct couplings at once, at total degree four, so the
+%plane restriction is unavailable there even though it involves fewer couplings in all.
+
+%Every one of the $40$ points of the recommended basis lies in a plane: thirty-nine
+%activate exactly two coefficients and one is the SM. Allowing two points off the planes,
+%tested as a separate twenty-seed sweep, gives a score of $0.624$ against $0.609$, a
+%median relative shape residual of $3.5\%$ against $3.0\%$, and a condition number of
+%$26.6$ against $32.7$. Each basis point then isolates one coefficient pair, which is the
+%form the results are presented in.
+
+%The loss asks a candidate basis to predict every other sample in the grid, and at
+%$13.6$~TeV $2792$ of the $4376$ samples activate more than two coefficients. Scoring
+%against the on-plane samples alone would select a different basis:
+%Appendix~\ref{sec:appendix_basis_planes} gives that measurement, together with the
+%numerical and interpretational arguments for restricting the membership.
+
+%\subsection{Refinements to the search}
+%\label{sec:basis_refinements}
+
+%The search is the one of Ref.~\cite{HH_nonggf_R5} and we have not changed its
+%objective: the same six-term score, the same single-point exchange, the same
+%sweep over random seeds with the lowest-scoring seed retained. The changes below are
+%refinements to how the search is started and how large a parameter space it can
+%be run in. They matter here because this report optimizes bases in up to nine
+%dimensions against sample sets four to seven times larger than the one used in
+%Ref.~\cite{HH_nonggf_R5}, and two of the steps that are harmless at five
+%couplings and a few hundred samples are not harmless at nine.
+
+%There are five. Randomly drawn starting
+%configurations are redrawn until the interpolation matrix has full rank, because in nine
+%dimensions $85\%$ of uniform draws are singular for a counting reason: $20$ of the $40$
+%monomials vanish unless a four-fermion coefficient is non-zero, while only $45\%$ of the
+%samples have one. The well-conditioned starting configuration is built so that it spans
+%the monomials, not only so that it is well conditioned. The score is evaluated for all
+%targets at once, which costs a factor of about five less and so keeps the full
+%optimization set affordable at every exchange step, with no subsampling. More basis
+%points than monomials are allowed as an option, the weights then being the minimum-norm
+%least-squares solution, though the published bases are exactly determined. And the
+%trajectory of every seed is recorded, which is what shows that a seed cannot be judged
+%before it has converged. Appendix~\ref{sec:appendix_basis_search} gives each of these,
+%together with what makes the problem tractable and the changes that did not improve it.

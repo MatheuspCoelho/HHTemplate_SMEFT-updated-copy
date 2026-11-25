@@ -1,0 +1,103 @@
+\subsection{Reducing the fit cost when few coefficients are free}
+\label{sec:slice_models}
+
+Most results are likelihood scans in one or two Wilson coefficients, with the rest held
+at their SM values or a few of them profiled. The workspace, however, carries all forty
+templates of the basis and evaluates all forty terms of Eq.~\eqref{eq:smeftpara_reorg}
+in every bin, including the terms that depend only on coefficients the fit never moves.
+Those terms are constants, and once they are constant the weight $w_i(c)$ of many basis
+templates is exactly zero everywhere in the scan. A template whose weight is zero
+contributes nothing to any prediction the fit will make, and can be left out of the
+workspace.
+
+One free coefficient leaves three of the forty terms and two leave six, and the number of
+templates with a non-vanishing weight follows: between five and fifteen on a single axis,
+about ten on a plane, and all forty once every coefficient moves. The count depends on
+the direction and not only on the number of free coefficients --- the
+$c_{\PH\mathrm{kin}}$ axis keeps six templates and the $c_{\PH G}$ axis fifteen --- and
+it follows from the basis in one evaluation for any other scan. The coefficients that
+have to be kept are those the fit scans, profiles, or holds at a value other than the SM
+one.
+
+Nothing new has to be simulated. The smaller model is the same card with templates
+removed, so it can be built for any scan from the basis already in hand.
+
+What is saved is the size of the statistical model. The expected yield of a bin is
+$\sum_i w_i(c) N_{ij}$, so the work per bin is the number of templates times the number
+of terms, and the two shrink together; Table~\ref{tab:slices} gives both, for the full
+basis and for two scans, with the cost of one prediction and of one scan point. The
+scan-point column is measured on a complete analysis model --- of order twenty
+categories, parametric shapes with discrete profiling, the full set of systematic
+uncertainties, and the $80$ templates of the nine-coefficient basis at two
+centre-of-mass energies --- in which one point of a nine-coefficient scan takes about
+half an hour against the tens of seconds an analysis with a handful of signal templates
+is used to. Those are order-of-magnitude figures from one model and will differ between
+analyses.
+
+A global fit floats all nine coefficients, so it carries every template and saves
+nothing. Three precautions apply to it, as general practice rather than as responses to
+an observed failure. The minimiser is run with tight settings, since what a loose
+tolerance saves is small next to a scan point that has not converged. Several starting
+points are tried, because the cross section is quadratic in the coefficients and the
+likelihood need not be unimodal: in a realistic nine-coefficient scan the $c_{\PQt G}$
+direction shows a second minimum near $c_{\PQt G}=1$. And a coefficient the selection
+does not respond to is fixed rather than floated, with the choice stated, so that no flat
+direction enters the fit. On the measurement of
+Sec.~\ref{sec:validation_subleading_role} those are $c_{QQ\PQt\PQt}$ and
+$c_{QQ}^{(8)}$, whose acceptance varies by less than $0.1$ over their full range in
+either $4\PQb$ selection: they move the rate and leave the shape untouched, so a fit that
+floats them is fitting a direction its selection cannot see.
+\textcolor{red}{Whether that survives at a collider reaching much higher \mHH, where the
+four-top operators grow fastest, is a question for the $100$~TeV study
+(Sec.~\ref{sec:energy_beyond}).}
+
+For a channel as light as the \HHbbbb example used here the difference changes little in
+practice: the model has few categories, and a scan that takes half an hour per point is
+still affordable. The reduction is worth making where the model is heavy --- many
+categories, several decay channels combined into one fit, and scans that have to be
+repeated for each variation --- which is where the cost of carrying forty templates
+through every bin becomes the limiting one.
+
+The numerical results are unchanged, as they have to be: the templates that are dropped
+carry a weight of zero, and the agreements measured on the \HHbbbb example are in
+Table~\ref{tab:slices}, down to $10^{-5}$ in $-2\Delta\ln L$ with up to three
+coefficients profiled and $2\times10^{-3}$ with up to seven. The Monte Carlo statistical
+uncertainty of the morphed prediction is unchanged for a separate reason: the templates
+are reweightings of the same simulated events, and their morphing reproduces the direct
+reweighting to the target point in any basis (Sec.~\ref{sec:uncertainties}). Measured
+along the $c_{\PH\mathrm{kin}}$ axis with the full covariance of the templates, the two
+models give the same $\sigma_{\text{MM}}$ to the three digits quoted, from $0.173\%$ of
+the yield at the SM point to $0.240\%$ at $c_{\PH\mathrm{kin}}=8$; integrated over \mHH
+they agree to $0.1\%$ and per bin to within $4\%$. The interpolation uncertainty belongs
+to the input samples rather than to the basis.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lcccccc}
+\hline
+free & terms & templates & products & direct & one scan & agreement with \\
+coefficients & kept & kept & per bin & evaluation & point & the full model \\
+\hline
+all nine (full basis)             & $40$ & $40$ & $1600$ & $9\,\mu$s   & $\sim30$~min & reference \\
+$c_{\PH}$, $c_{\PH\mathrm{kin}}$  & $6$  & $10$ & $60$   & ---         & ---          & $5\times10^{-7}$ \\
+$c_{\PH\mathrm{kin}}$             & $3$  & $6$  & $18$   & $0.2\,\mu$s & $\sim6$~min  & $<10^{-9}$ \\
+\hline
+\end{tabular}
+\caption{Cost and agreement of the reduced model. ``Products per bin'' is the number of
+templates times the number of terms kept. The direct evaluation is the prediction of the
+\HHbbbb example outside any fitting framework; the scan point is one point of a
+likelihood scan in a complete analysis model and is an order of magnitude only.
+Agreement is the largest difference in $-2\Delta\ln L$ between the reduced and the full
+model over the scans tested.}
+\label{tab:slices}
+\end{table}
+
+A smaller model again can be built by giving the scan its own basis points --- three on
+one axis, six on a plane, as many as the terms it keeps --- instead of keeping whichever
+of the forty templates survive there. Those points are reweighted templates the card
+does not already contain, so this is worthwhile only when the same scan is repeated.
+
+Nothing in the construction is specific to the SMEFT parameterization: it needs only
+that the prediction is a polynomial and that the morphing weights are polynomials in the
+same terms. The same arguments apply to any physics case built with the matrix method,
+HEFT among them.

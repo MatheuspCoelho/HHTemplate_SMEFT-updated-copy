@@ -1,0 +1,77 @@
+\section{Exchanging between authors}
+\label{sec:appendix_exchange}
+
+This appendix records the cross-checks made between parameterizations derived
+independently by different authors, and the numbers exchanged for them.
+
+\subsection{Cross sections at the Warsaw top-dipole basis points}
+\label{sec:appendix_exchange_topdipole}
+
+The five-coefficient ``Warsaw top-dipole'' parameterization of Ref.~\cite{ELR_topdipole} and the
+nine-coefficient parameterization of this report describe the same process in overlapping regions of
+the same parameter space, from separate simulated samples and separate fits. A direct comparison of
+the total cross section at the twenty basis points of the former is therefore a check of both, and
+it is reported in Table~\ref{tab:appendix_topdipole_xsec}.
+
+The comparison is between two \emph{parameterizations}, not between a parameterization and a
+generated cross section: the quoted values of the five-coefficient model are themselves the output
+of its reweighting formula. The offset at the SM point, where the nine-coefficient formula gives
+$31.01$~fb against $30.81$~fb, is the baseline difference between the two productions rather than an
+error in either.
+
+Two things bear on the remaining differences. First, thirteen of the twenty
+points lie outside the hyper-rectangle in which the samples of this report were generated
+(Table~\ref{tab:SMEFTcouplings}): $c_{\PH\mathrm{kin}}$ reaches $\pm 50$ against the $\pm 8$
+generated here, and $c_{\PQt\PH}$ reaches $\pm 49$ against $[-10, 7]$. At those points the
+nine-coefficient formula is being extrapolated, in one coordinate by a factor of five to seven.
+Second, the differences are not spread evenly over the points but track $c_{\PQt\PH}$: the six
+points with $c_{\PQt\PH} \neq 0$ differ by $2.2\%$ in median and by at most $3.4\%$, while the
+fourteen points with $c_{\PQt\PH} = 0$ agree to $0.22\%$ in median and $0.65\%$ at worst. Since
+$c_{\PQt\PH}$ is also the coordinate that is extrapolated furthest, the two observations are
+consistent with a single explanation, and separating an extrapolation effect from a genuine
+difference between the two fits would require points with $c_{\PQt\PH} \neq 0$ inside the generated
+range.
+
+Over all twenty points the median relative difference is $+0.07\%$, the median of its absolute value
+$0.35\%$, and the largest $3.40\%$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{ccccc|ccc}
+\hline
+$c_{\PH}$ & $c_{\PH\mathrm{kin}}$ & $c_{\PQt\PH}$ & $c_{\PH G}$ & $c_{\PQt G}$ &
+$\sigma_{\text{5D}}$ [fb] & $\sigma_{\text{9D}}$ [fb] & difference [\%] \\
+\hline
+$0$ & $0$ & $0$ & $0$ & $0$ & $30.81$ & $31.01$ & $+0.64$ \\
+$0$ & $8.174$ & $0$ & $0$ & $0$ & $33.60$ & $33.68$ & $+0.23$ \\
+$0$ & $-10.02$ & $0$ & $0$ & $0$ & $188.56$ & $188.19$ & $-0.20$ \\
+$47.01$ & $0$ & $0$ & $0$ & $0$ & $5626.66$ & $5619.30$ & $-0.13$ \\
+$-10.41$ & $0$ & $0$ & $0$ & $0$ & $144.58$ & $144.36$ & $-0.15$ \\
+$0$ & $0$ & $-11.24$ & $0$ & $0$ & $78.82$ & $80.42$ & $+2.03$$^{\ast}$ \\
+$0$ & $0$ & $-5.332$ & $0$ & $0$ & $19.77$ & $20.13$ & $+1.80$$^{\ast}$ \\
+$0$ & $0$ & $0$ & $0.08801$ & $0$ & $222.12$ & $221.67$ & $-0.20$ \\
+$0$ & $0$ & $0$ & $-0.0934$ & $0$ & $424.25$ & $423.75$ & $-0.12$ \\
+$21.48$ & $31.95$ & $0$ & $0$ & $0$ & $316.89$ & $316.66$ & $-0.07$ \\
+$0$ & $-46.72$ & $-33.62$ & $0$ & $0$ & $348.30$ & $339.59$ & $-2.50$$^{\ast}$ \\
+$0$ & $37.37$ & $0$ & $-0.08705$ & $0$ & $408.20$ & $405.57$ & $-0.65$ \\
+$0$ & $49.99$ & $49.34$ & $0$ & $0$ & $364.06$ & $372.38$ & $+2.29$$^{\ast}$ \\
+$0$ & $0$ & $42.59$ & $0.04191$ & $0$ & $1824.62$ & $1854.80$ & $+1.65$$^{\ast}$ \\
+$0$ & $2.355$ & $0$ & $-0.03882$ & $0$ & $81.85$ & $82.02$ & $+0.21$ \\
+$0$ & $27.12$ & $0$ & $0$ & $-0.957$ & $390.54$ & $389.35$ & $-0.31$ \\
+$0$ & $-2.418$ & $0$ & $0$ & $0.2247$ & $44.87$ & $45.05$ & $+0.40$ \\
+$0$ & $0$ & $-11.06$ & $0$ & $-0.7811$ & $54.49$ & $56.34$ & $+3.40$$^{\ast}$ \\
+$0$ & $0$ & $0$ & $0.09657$ & $-1$ & $203.18$ & $202.36$ & $-0.40$ \\
+$0$ & $0$ & $0$ & $0$ & $-0.8087$ & $49.25$ & $49.37$ & $+0.24$ \\
+\hline
+\end{tabular}
+\caption{Total \ggHH cross section at $13.6$~TeV at the twenty basis points of the
+five-coefficient Warsaw top-dipole parameterization, as given by that parameterization
+($\sigma_{\text{5D}}$) and as computed from the nine-coefficient parameterization of this report
+($\sigma_{\text{9D}}$), with their relative difference. The two describe the same process from
+separate samples and separate fits. Points marked $^{\ast}$ have $c_{\PQt\PH} \neq 0$; these are
+also the points extrapolated furthest beyond the range in which the samples of this report were
+generated. The remaining four Wilson coefficients of the nine-coefficient parameterization are zero
+at every point.}
+\label{tab:appendix_topdipole_xsec}
+\end{table}

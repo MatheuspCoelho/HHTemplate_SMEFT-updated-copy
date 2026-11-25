@@ -1,0 +1,53 @@
+\section{Running of the Wilson coefficients}
+\label{sec:rge}
+
+The parameterization of Sec.~\ref{sec:parameterization} treats the Wilson coefficients as
+constants. They are supplied to the generator at a fixed input scale, $\mu_0 = 173$~GeV,
+and the matrix element uses that value at every phase-space point. In the SMEFT the
+coefficients run, and a calculation that resums the associated logarithms evaluates them
+at a scale characteristic of the process, which for \HH production grows with \mHH. Like
+the validity statements of Sec.~\ref{sec:truncation}, this is a property of
+Eq.~\eqref{eq:smeftpara_reorg} and not of any analysis selection.
+
+Five of the nine coefficients evolve --- $c_{\PQt\PH}$, $c_{\PH G}$, $c_{\PQt G}$,
+$c_{Q\PQt}^{(1)}$ and $c_{Q\PQt}^{(8)}$ --- while the purely bosonic $c_{\PH\Box}$,
+$c_{\PH D}$ and $c_\PH$ do not. The subleading coefficients evolve multiplicatively from
+their input values, so the operator mixings $c_{Q\PQt}^{(1,8)} \to c_{\PQt\PH}$ and
+$c_{\PQt G}, c_{Q\PQt}^{(1,8)} \to c_{\PH G}$ vanish at a point where the subleading
+coefficients do. The anomalous dimensions and their solution are those of
+Ref.~\cite{Heinrich:2024rtg}.
+
+The size of the omission is measured on samples generated with the running enabled at
+$\sqrt{s}=13.6$~TeV, with $\mu_{\text{EFT}} = \mHH/2$. A benchmark with no running
+coefficient is reproduced to $0.02\%$ in rate, which bounds any artefact of the
+procedure. At $c_{\PQt\PH}=4$, the largest value of the benchmark set, the rate falls by
+$2.9\%$ and $\langle\mHH\rangle$ by $1.5\%$, with a coherent tilt of the spectrum at
+$5.8\sigma$ --- soft bins up and hard bins down, as expected when a coefficient runs down
+with \mHH --- and the effect falls with $c_{\PQt\PH}$.
+
+The coefficients delivered with this report are therefore defined at $\mu_0 = 173$~GeV
+and the templates are built with them fixed there. Where the coefficients that run are
+small the difference is below the statistics of the comparison; at the upper end of the
+$c_{\PQt\PH}$ range it is a few per cent in rate and about one per cent in the mean of
+the spectrum, comparable to the modelling uncertainty of Sec.~\ref{sec:uncertainties} and
+with a definite shape rather than a normalization. An interpretation that quotes
+coefficients at a different scale, or that combines these results with measurements which
+do, should either evolve them explicitly or carry an uncertainty of that size. For the
+four coefficients that do not run there is nothing to do.
+
+Evolving them explicitly costs no new simulation. At leading logarithmic accuracy the
+solution of the dimension-6 renormalization-group equations is linear in the Wilson
+coefficients, $c_i(\mu) = U_{ij}(\mu,\mu_0)\,c_j(\mu_0)$, and a linear map composed with
+the quadratic polynomial of Eq.~\eqref{eq:smeftpara_reorg} is again a quadratic
+polynomial in the same monomials (Sec.~\ref{sec:rge_generation}); the morphing weights
+are polynomials in those same monomials, so the basis delivers the running prediction at
+the transformed point with the templates it already has.
+
+The shape moves as well, and by more than the rate where several coefficients run
+together: over the benchmark set of Sec.~\ref{sec:trunc_modelling}, extended with three
+nine-dimensional points, the mean of the \mHH spectrum shifts by up to $9\%$, the
+largest shift being at the point that isolates the gluonic and four-top channels. An
+analysis sensitive to the spectrum therefore needs the kinematic description to follow
+the running and not only the rate. The implementation of that map, its closure against
+the running-enabled samples by both routes, and the benchmarks in which the four-fermion
+mixings are active are going to be studied in a follow-up work.

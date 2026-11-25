@@ -1,0 +1,90 @@
+\section{Parameterization of the differential cross section}
+\label{sec:parameterization}
+
+Due to the expensive MC generation, analytical descriptions of the total and differential cross sections are useful---if not mandatory---ways to explore the theory space, especially in the context of the heavy workflows used in experimental analyses. In SMEFT, the nonresonant \ggHH cross section can be parameterized as a function of the Wilson coefficients as follows:
+%The event-level reweighting (ELR) technique consists of parameterizing the \HH cross section in terms of the coupling combinations appearing in the squared matrix element, and then defining weights that transport a given reference sample to any point of the EFT parameter space. The method was introduced for \HH production in Ref.~\cite{Carvalho:2017vnu} and developed to NLO QCD accuracy in Refs.~\cite{Alasfar:2023xpc,Cadamuro:2025car,ELR_R5}; here we only repeat what is needed to make this report self-contained and refer to Ref.~\cite{ELR_R5} for the derivation and for the validation of the technique.
+
+%The differential \ggHH cross section at NLO QCD in SMEFT is written as a function of a phase-space variable (or set of variables) $\xi$ with bin index $j$. Denoting the leading Wilson coefficients by $c_{\text{H}},\,c_{\text{H}\mathrm{kin}},\,c_{u\PH},\,c_{\text{H}G}$ and the subleading ones by $c_{tG},\,c_{Qt1},\,c_{Qt8},\,c_{QQtt},\,c_{QQ8}$, the differential cross section can be organized as the SM term $A^j_0$ followed by two outer brackets: a ``leading only'' group containing the terms built solely from leading operators, and an ``include subleading'' group containing the terms with at least one subleading operator. Each outer group is in turn split into its linear and quadratic parts. The leading-only quadratic bracket collects every quadratic combination of the four leading operators in a single upper-triangular form $(c_{\text{leading}})\,Q\,(c_{\text{leading}})^{\!\top}$, with the squares on the diagonal and the distinct cross products above it. The quadratic-with-subleading bracket is written compactly as the bilinear form $(c_{\text{leading}})^{\!\top} M\,(c_{\text{subleading}})$, with the leading coefficients as rows and the subleading ones as columns:
+\begin{equation}\label{eq:smeftpara_reorg}
+\renewcommand{\arraystretch}{1.4}
+\begin{split}
+\frac{d}{d\xi_j}\sigma_{\ggHH}(\mathbf{c}^{\text{SMEFT}}_i) &= \\[6pt]
+&\hspace{-2.2em} A^j_0
++ \underbrace{
+\underbrace{
+\begin{pmatrix} A^j_1 \\ A^j_2 \\ A^j_3 \\ A^j_4 \end{pmatrix}^{\!\!\top}
+\begin{pmatrix} c_{\text{H}} \\ c_{\text{H}\mathrm{kin}} \\ c_{u\PH} \\ c_{\text{H}G} \end{pmatrix}
+}_{\text{linear}}
++ \underbrace{
+\begin{pmatrix} c_{\text{H}} & c_{\text{H}\mathrm{kin}} & c_{u\PH} & c_{\text{H}G} \end{pmatrix}
+\begin{pmatrix}
+A^j_5 & A^j_6 & A^j_7 & A^j_8 \\
+0                 & A^j_9 & A^j_{10} & A^j_{11} \\
+0                 & 0                 & A^j_{12} & A^j_{13} \\
+0                 & 0                 & 0                    & A^j_{14}
+\end{pmatrix}
+\begin{pmatrix} c_{\text{H}} \\ c_{\text{H}\mathrm{kin}} \\ c_{u\PH} \\ c_{\text{H}G} \end{pmatrix}
+}_{\text{quadratic}}
+}_{\text{leading only}} \\[14pt]
+&\hspace{-2.2em} + \underbrace{
+\underbrace{
+\begin{pmatrix} A^j_{15} \\ A^j_{16} \\ A^j_{17} \\ A^j_{18} \\ A^j_{19} \end{pmatrix}^{\!\!\top}
+\begin{pmatrix} c_{tG} \\ c_{Qt1} \\ c_{Qt8} \\ c_{QQtt} \\ c_{QQ8} \end{pmatrix}
+}_{\text{linear}}
++ \underbrace{
+\begin{pmatrix} c_{\text{H}} & c_{\text{H}\mathrm{kin}} & c_{u\PH} & c_{\text{H}G} \end{pmatrix}
+\begin{pmatrix}
+A^j_{20} & A^j_{21} & A^j_{22} & A^j_{23} & A^j_{24} \\
+A^j_{25} & A^j_{26} & A^j_{27} & A^j_{28} & A^j_{29} \\
+A^j_{30} & A^j_{31} & A^j_{32} & A^j_{33} & A^j_{34} \\
+A^j_{35} & A^j_{36} & A^j_{37} & A^j_{38} & A^j_{39}
+\end{pmatrix}
+\begin{pmatrix} c_{tG} \\ c_{Qt1} \\ c_{Qt8} \\ c_{QQtt} \\ c_{QQ8} \end{pmatrix}
+}_{\text{quadratic}}
+}_{\text{include subleading}}\\
+&\hspace{-2.2em}=Poly(\mathbf{c}^{\text{SMEFT}}, \mathbf{A}^j),
+\end{split}
+\end{equation}
+for $\xi$ a given phase-space variable, or variables in a multi differential description, and the corresponding bin $j$. The numeric $A$-coefficients carry the kinematic information of each of the squared-matrix element components.
+
+The parameterization shown in Eq.~\eqref{eq:smeftpara_reorg} assumes the following options in \texttt{Powheg-Box-V2}: first, the quadratic truncation (option \texttt{b}); second, the $\textsc{includesubleading}==1$ option, to incorporate the subleading operators. This setup considers SM+linear dimension-6+quadratic dimension-6 contributions for leading operators at the cross section level, while subleading operators enter only linearly---therefore, $|\mathcal{M}_{\text{dim6}}^{\text{sublead}}|^2$ is neglected, and only interference terms with the leading part is considered. Double dimension-6 operator insertions ($\mathcal{M}_{\text{dim6}^2}$) are neglected in this truncation.
+
+One advantage of using the analytical description in $Poly(\mathbf{c}^{\text{SMEFT}}, \mathbf{A}^j)$ is the flexibility in the choice of truncation. Once all coefficients are known, one can also describe cross sections in the linear truncation (option \texttt{a} in \texttt{Powheg} setup) by setting to zero the $A$'s contributing to the quadratic pieces. The mapping of the $A$-coefficients corresponding to leading-subleading operators and linear-quadratic truncations is shown in Table \ref{tab:smeft_matrix_blocks}. Additionally, one may notice that the definition of the combined Wilson coefficients $c_{\PH\mathrm{kin}}$ and $c_{QQ\PQt\PQt}$ of Sec.~\ref{sec:framework} not only reduces the parameter space dimension from 11 to 9, but also the number of required $A$-coefficients from 56 to 40, as a consequence. %The leading Wilson coefficients act on the same leading-order \ggHH diagrams as the HEFT couplings, which are drawn in Ref.~\cite{ELR_R5}; some of the diagrams specific to the subleading operators are shown in Fig.~\ref{fig:feymnhh_subleading}.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lc}
+\hline
+Bracket & Coefficients \\
+\hline
+SM term                    &  $A^j_0$ \\
+Linear, leading            & $A^j_1$--$A^j_4$ \\
+Quadratic, leading only    &  $A^j_5$--$A^j_{14}$ \\
+Linear, subleading         &  $A^j_{15}$--$A^j_{19}$ \\
+Quadratic, with subleading & $A^j_{20}$--$A^j_{39}$ \\
+\hline
+\end{tabular}
+\caption{Decomposition of the SMEFT parameterization of Eq.~\eqref{eq:smeftpara_reorg} into the SM term and four brackets, organized by truncation and by whether the operators involved are leading or subleading.}
+\label{tab:smeft_matrix_blocks}
+\end{table}
+
+It is important to note, however, that this parameterization assumes no running of Wilson coefficients under RGEs. At NLO QCD, the anomalous dimension matrix mixes different Wilson coefficient contributions---except for $c_{\text{H}}$ and $c_{\text{Hkin}}$---, thereby making Eq.~\eqref{eq:smeftpara_reorg} invalid~\cite{Heinrich:2024rtg}. Notwithstanding, with some care a similar approach still possible when considering RGE effects, which is left for a future contribution.
+
+Once the $A$-coefficients are known, one can apply the ELR approach in the same way as discussed in Ref.~\cite{ELR_R5}:
+\begin{equation}\label{eq:reweightformula}
+w(\mathbf{c}^{\text{SMEFT}}_i)=\frac{Poly(\mathbf{c}^{\text{SMEFT}}_i, \mathbf{A}^j)}{Poly(\mathbf{c}_{\text{ref}}, \mathbf{A}^j)}w(\mathbf{c}_{\text{ref}})\;,
+\end{equation}
+where $\mathbf{c}_{\text{ref}}$ denotes a reference sample that is reweighted to any point fixed by $\mathbf{c}^{\text{SMEFT}}_i$ in SMEFT parameter space, and $w(\mathbf{c}_{\text{ref}})$ the corresponding generator-level weight.
+
+%Furthermore, $c_{QQ}^{(1)}$ and $c_{\PQt\PQt}$ are combined into a single parameter $c_{QQ\PQt\PQt}=c_{QQ}^{(1)}+c_{\PQt\PQt}$, as their contributions to the amplitude can be factorized CITE. In addition, we are using the common convention for the kinetic coefficients $c_{Hkin}=c_{\PH\Box}-\frac{1}{4}c_{\PH D}$. These simplifications reduce the number of parameters from 11 to 9, which allows us to parameterize the cross section in terms of 40 $A-$coefficients in equation \eqref{eq:smeftpara_reorg}, rather than 56. The effect of the leading Wilson coefficients on the leading order \ggHH Feynman diagrams is indicated in Figure~\ref{fig:feymnhh}. 
+%The 40 coefficients $A^j_k$ are numbered in ascending order following the reading order of the matrices (left to right, top to bottom, skipping the zero entries of $Q$). In the leading-only bracket the matrix $Q$ holds the squares of the leading operators on its diagonal and their distinct pairwise products above it, while the with-subleading bracket collects the remaining quadratic combinations in the matrix $M$. Table~\ref{tab:smeft_matrix_blocks} summarizes the content of the brackets.
+
+
+
+
+%Once the $A$-coefficients are known, the differential cross section at any point of the parameter space follows from the analytical formula, and any reference sample can be reweighted event by event through the ratio
+%\begin{equation}\label{eq:reweightformula}
+%w(\mathbf{c}^{\text{SMEFT}}_i)=\frac{Poly(\mathbf{c}^{\text{SMEFT}}_i, \mathbf{A}^j)}{Poly(\mathbf{c}_{\text{ref}}, \mathbf{A}^j)}w(\mathbf{c}_{\text{ref}})\;,
+%\end{equation}
+%which allows any phase-space variable $\Omega$ to be built, not only those used to extract the formula.

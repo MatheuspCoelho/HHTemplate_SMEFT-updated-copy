@@ -1,0 +1,15 @@
+# Local build scratch (contains symlinks; Overleaf/GitHub sync rejects those)
+Diagrams/build/
+Feynman_diagrams/build/
+texmf-var/
+
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+*.synctex.gz

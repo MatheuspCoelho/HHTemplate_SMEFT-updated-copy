@@ -1,0 +1,20 @@
+\begin{fmffile}{fmf_c_2g}
+    \begin{fmfgraph*}(180,50)
+   \fmfleft{i1,i2}
+   \fmfright{o1,o2}
+    \fmf{phantom}{i1,a1,o1}
+     \fmf{phantom}{i2,a2,o2}
+ \fmffreeze
+ \fmf{phantom}{a1,v1,a2}
+     \fmffreeze    
+   \fmf{gluon}{i1,v1}
+   \fmf{gluon}{v1,i2}
+   \fmf{dashes}{v1,o1}   
+    \fmf{dashes}{v1,o2}
+      \fmflabel{\Pg}{i1}
+   \fmflabel{\Pg}{i2}
+    \fmflabel{\PH}{o1}
+    \fmflabel{\PH}{o2}
+    \fmfv{lab=\color{cat3}{$c_{2g}$}, decor.shape=square, decor.filled=shaded,decor.size=10, lab.dist=10, lab.angle=-90, foreground=(0.894,,0.145,,0.212)}{v1}
+ \end{fmfgraph*}
+\end{fmffile}

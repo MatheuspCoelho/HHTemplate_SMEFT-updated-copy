@@ -1,0 +1,229 @@
+% \PV is used by \kV, \kVV, \VH and \PTV below, but on this TeX installation it
+% expands to nothing (the kappa macros print as "kappa" and "kappa_2" instead of
+% "kappa_V" and "kappa_2V"). Define it explicitly.
+\makeatletter
+\@ifundefined{PV}{\newcommand{\PV}{\ensuremath{V}}}{\renewcommand{\PV}{\ensuremath{V}}}
+\makeatother
+
+% HH production
+\newcommand{\HH}{\ensuremath{{\PH\PH}}\xspace}
+\newcommand{\ggHH}{\ensuremath{{\Pg\Pg\PH\PH}}\xspace}
+\newcommand{\qqHH}{\ensuremath{{\PQq\PQq\PH\PH}}\xspace}
+\newcommand{\VBFHH}{\qqHH}
+\newcommand{\singleH}{single-\PH}
+
+
+\newcommand{\bbbar}{\ensuremath{\PQb\PQb}\xspace}
+
+% HH decay
+% \newcommand{\bbgg}{\ensuremath{\gamma\gamma\bbbar}\xspace}
+% \newcommand{\bb}{\ensuremath{\bbbar}\xspace}
+% \newcommand{\bbbb}{\ensuremath{\bbbar\bbbar}\xspace}
+% \newcommand{\bbtt}{\ensuremath{\tau\tau\bbbar}\xspace}
+% \newcommand{\bbZZ}{\ensuremath{\PZ\PZ\bbbar}\xspace}
+% \newcommand{\bbWW}{\ensuremath{\PW\PW\bbbar}\xspace}
+% \newcommand{\WWgg}{\ensuremath{\PW\PW\gamma\gamma}\xspace}
+% \newcommand{\ggtt}{\ensuremath{\gamma\gamma\PGt\PGt}\xspace}
+% \newcommand{\bbZZfourl}{\ensuremath{\bbbar\PZ\PZ(4\ell)}\xspace}
+
+\newcommand{\bbgg}{\ensuremath{\bbbar\gamma\gamma}\xspace}
+\newcommand{\bb}{\ensuremath{\bbbar}\xspace}
+\newcommand{\bbbb}{\ensuremath{\bbbar\bbbar}\xspace}
+\newcommand{\bbtt}{\ensuremath{\bbbar\PGt\PGt}\xspace}
+\newcommand{\bbZZ}{\ensuremath{\bbbar\PZ\PZ}\xspace}
+\newcommand{\bbWW}{\ensuremath{\bbbar\PW\PW}\xspace}
+\newcommand{\WWgg}{\ensuremath{\PW\PW\gamma\gamma}\xspace}
+\newcommand{\ggtt}{\ensuremath{\PGt\PGt\gamma\gamma}\xspace}
+\newcommand{\bbZZfourl}{\ensuremath{\bbbar\PZ\PZ(4\ell)}\xspace}
+
+
+% \newcommand{\HHbbgg}{\ensuremath{\PH\PH\to\gamma\gamma\bbbar}\xspace}
+% \newcommand{\HHbbtt}{\ensuremath{\PH\PH\to\tau\tau\bbbar}\xspace}
+% \newcommand{\HHbbWW}{\ensuremath{\PH\PH\to\PW\PW\bbbar}\xspace}
+% \newcommand{\HHbbll}{\ensuremath{\PH\PH\to\bbbar\ell\ell+E_T^{\text{miss}}}\xspace}
+% \newcommand{\HHbbZZllll}{\ensuremath{\PH\PH\to\PZ\PZ\bbbar\to 4l}\xspace}
+% \newcommand{\HHbbbb}{\ensuremath{\PH\PH\to 4b}\xspace}
+% \newcommand{\HHLeptons}{\ensuremath{\PH\PH\to \text{Leptons}}\xspace}
+% \newcommand{\ppHHbbgg}{\ensuremath{\Pp\Pp\to\PH\PH\to\gamma\gamma\bbbar}\xspace}
+\newcommand{\HVV}{\ensuremath{\PH\to\PV\PV}\xspace}
+
+% as above, but without HH-> 
+% \newcommand{\HHbbgg}{\ensuremath{\gamma\gamma\bbbar}\xspace}
+% \newcommand{\HHbbtt}{\ensuremath{\tau\tau\bbbar}\xspace}
+% \newcommand{\HHbbWW}{\ensuremath{\PW\PW\bbbar}\xspace}
+% \newcommand{\HHbbll}{\ensuremath{\bbbar\ell\ell+E_T^{\text{miss}}}\xspace}
+% \newcommand{\HHbbZZllll}{\ensuremath{\PZ\PZ\bbbar\to 4l}\xspace}
+% \newcommand{\HHbbbb}{\ensuremath{\bbbar\bbbar}\xspace}
+% % \newcommand{\HHLeptons}{\ensuremath{\text{Leptons}}\xspace}
+% \newcommand{\HHLeptons}{\ensuremath{\text{Multileptons}}\xspace}
+
+\newcommand{\HHbbgg}{\ensuremath{\bbbar\gamma\gamma}\xspace}
+\newcommand{\HHbbtt}{\ensuremath{\bbbar\PGt\PGt}\xspace}
+\newcommand{\HHbbWW}{\ensuremath{\bbbar\PW\PW}\xspace}
+\newcommand{\HHbbZZ}{\ensuremath{\bbbar\PZ\PZ}\xspace}
+\newcommand{\HHbbll}{\ensuremath{\bbbar\ell\ell+E_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\HHbbZZllll}{\ensuremath{\bbbar\PZ\PZ\to 4l}\xspace}
+\newcommand{\HHbbbb}{\ensuremath{\bbbar\bbbar}\xspace}
+% \newcommand{\HHLeptons}{\ensuremath{\text{Leptons}}\xspace}
+\newcommand{\HHLeptons}{\ensuremath{\text{Multileptons}}\xspace}
+
+
+% single-H production
+\newcommand{\SH}{\ensuremath{\mbox{single } {\PH}}\xspace}
+\newcommand{\ggH}{\ensuremath{\Pg\Pg\PH}\xspace}
+\newcommand{\VH}{\ensuremath{\PV\PH}\xspace}
+\newcommand{\ZH}{\ensuremath{\PZ\PH}\xspace}
+\newcommand{\WH}{\ensuremath{\PW\PH}\xspace}
+\newcommand{\VBFH}{\ensuremath{\mathrm{VBF}\ \PH}\xspace}
+\newcommand{\qqH}{\VBFH}
+\providecommand{\ttbar}{\ensuremath{\PQt\PAQt}\xspace}
+\newcommand{\ttH}{\ensuremath{\ttbar\PH}\xspace}
+\newcommand{\tHq}{\ensuremath{\PQt\PH\PQq}\xspace}
+
+% single-H (production+)decay
+\newcommand{\Hgg}{\ensuremath{\PH\to\gamma\gamma}\xspace}
+\newcommand{\Hbb}{\ensuremath{\PH\to \bbbar}\xspace}
+\newcommand{\HZZllll}{\ensuremath{\PH\to \PZ\PZ \to 4l}\xspace}
+\newcommand{\HZg}{\ensuremath{\PH\to \PZ\gamma}\xspace}
+\newcommand{\HWW}{\ensuremath{\PH\to \PW \PW}\xspace}
+\newcommand{\Hmm}{\ensuremath{\PH\to \mu \mu}\xspace}
+\newcommand{\Htt}{\ensuremath{\PH\to \tau \tau}\xspace}
+\newcommand{\Hinv}{\ensuremath{\PH\to}\xspace invisible \xspace}
+\newcommand{\ttHgg}{\ensuremath{\ttH(\PGg\PGg)}\xspace}
+\newcommand{\ttHbb}{\ensuremath{\ttH(\bbbar)}\xspace}
+\newcommand{\VHgg}{\ensuremath{\VH(\PGg\PGg)}\xspace}
+\newcommand{\qqHgg}{\ensuremath{\qqH(\PGg\PGg)}\xspace}
+\newcommand{\ggHgg}{\ensuremath{\ggH(\PGg\PGg)}\xspace}
+\newcommand{\tHqgg}{\ensuremath{\PQt\PH(\PGg\PGg)\PQq}\xspace}
+
+
+% other processes and particles
+\newcommand{\eeee}{\ensuremath{\Pe\Pe\Pe\Pe }\xspace}
+\newcommand{\eemm}{\ensuremath{\Pe\Pe\mu \mu }\xspace}
+\newcommand{\mmmm}{\ensuremath{\mu \mu \mu \mu }\xspace}
+\newcommand{\Zee}{\ensuremath{\PZ \to \Pe\Pe }\xspace}
+\newcommand{\Zmumu}{\ensuremath{\PZ \to \PGm\PGm}\xspace}
+\newcommand{\Zll}{\ensuremath{\PZ \to ll}\xspace}
+\newcommand{\PHiggs}{\ensuremath{\PH}}
+\newcommand{\muth}{\ensuremath{\PGt_\PGm\PGt_{{\text h}}}\xspace}
+\newcommand{\elemu}{\ensuremath{\PGt_\Pe\PGt_\PGm}\xspace}
+\newcommand{\eleth}{\ensuremath{\PGt_\Pe\PGt_{{\text h}}}\xspace}
+\newcommand{\thth}{\ensuremath{\PGt_{{\text h}}\PGt_{{\text h}}}\xspace}
+\newcommand{\tauhad}{\ensuremath{\PGt_{{\text h}}}\xspace}
+
+% kin variables
+\newcommand{\mH}{\ensuremath{m_{\PH}}\xspace}
+\newcommand{\mHH}{\ensuremath{m_{\PH\PH}}\xspace}
+\newcommand{\mreg}{\ensuremath{m_\mathrm{reg}}\xspace}
+\newcommand{\Dbb}{\ensuremath{D_{\bbbar}}\xspace}
+\newcommand{\PTH}{\ensuremath{p_{\mathrm{T}}^{\PH}}\xspace}
+\newcommand{\PTV}{\ensuremath{p_{\mathrm{T}}^{\PV}}\xspace}
+
+% POIs
+\newcommand{\sigmaHH}{\ensuremath{\sigma_{\PH\PH}}\xspace}
+\newcommand{\sigmaggHH}{\ensuremath{\sigma_{\ggHH}}\xspace}
+\newcommand{\sigmaqqHH}{\ensuremath{\sigma_{\qqHH}}\xspace}
+\newcommand{\sigmaVBFHH}{\sigmaqqHH}
+\providecommand*\sigmaGGF{\ensuremath{\sigma_{\Pg\Pg\text{F}}_{\PH\PH}}\xspace}
+\providecommand*\GGF{\ensuremath{\Pg\Pg\text{F}}\xspace}
+\providecommand*\VBF{\ensuremath{\text{VBF}}\xspace}
+\newcommand{\BR}{\ensuremath{\mathcal{B}(\HH\to\bbgg)}}
+\providecommand*\lambdahhh{\ensuremath{\lambda_{\PH\PH\PH}}\xspace} %% lambda_hhh
+\providecommand*\klambda{\ensuremath{\kappa_\lambda}\xspace} %% klambda
+\providecommand*\klthree{\color{cat6}\ensuremath{\kappa_{\lambda 3}}\color{black}\xspace} %% klambda_3
+\providecommand*\klfour{\color{cat4}\ensuremath{\kappa_{\lambda 4}}\color{black}\xspace} %% klambda_4
+\providecommand*\ktop{\ensuremath{\kappa_{\PQt}}\xspace} %% ktop
+\newcommand{\kt}{\ktop}
+\newcommand{\kb}{\ensuremath{\kappa_\PQb}\xspace}
+\newcommand{\kc}{\ensuremath{\kappa_\PQc}\xspace}
+\newcommand{\ktau}{\ensuremath{\kappa_\PGt}\xspace}
+\newcommand{\kmu}{\ensuremath{\kappa_\PGm}\xspace}
+\providecommand*\kF{\ensuremath{\kappa_{F}}\xspace} %% kF
+\providecommand*\CV{\ensuremath{\kappa_\text{V}}\xspace} %% CV
+\newcommand{\kappav}{\ensuremath{\kappa_\PV}\xspace}
+\newcommand{\kV}{\kappav}
+\newcommand{\kW}{\ensuremath{\kappa_\PW}\xspace}
+\newcommand{\kZ}{\ensuremath{\kappa_\PZ}\xspace}
+\providecommand*\CVV{\ensuremath{\kappa_\text{2V}}\xspace} %% C2V
+\newcommand{\kappavv}{\ensuremath{\kappa_{2\PV}}\xspace}
+\newcommand{\kVV}{\ensuremath{\kappa_{2\PV}}\xspace}
+\newcommand{\ktwoV}{\ensuremath{\kVV}\xspace}
+\newcommand{\kvv}{\ensuremath{\kVV}\xspace}
+\providecommand*\cg{\ensuremath{\text{c}_\text{g}}\xspace} %% cg
+\providecommand*\cgg{\ensuremath{\text{c}_{2\text{g}}}\xspace} %% c2g
+\providecommand*\ctwo{\ensuremath{\text{c}_2}\xspace} %% c2
+\renewcommand{\r}{\ensuremath{\mu}}
+\newcommand{\rhat}{\ensuremath{\hat{\mu}}}
+\newcommand{\vectheta}{\ensuremath{\boldsymbol{\theta}}}
+
+%Particles
+\newcommand{\PGtHad}{\ensuremath{\PGt_\text{h}}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\redfixme}[1]{\textcolor{red}{FIXME : #1}}
+
+\providecommand{\HH}{\ensuremath{\PH\PH}}
+\providecommand{\klambda}{\ensuremath{\kappa_\lambda}}
+\providecommand{\kvv}{\ensuremath{\kappa_{2\text{V}}}}
+\providecommand*{\fb} {\mbox{\ensuremath{\,\text{fb}}}\xspace} %% fb
+\providecommand*{\pb} {\mbox{\ensuremath{\,\    text{pb}}}\xspace} %% pb
+\providecommand*{\ab} {\mbox{\ensuremath{\,\text{ab}}}\xspace} %% ab
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \providecommand{\muHHnull}{\ensuremath{\mu_\HH^0}\xspace}
+% \providecommand{\muHHnull}{\ensuremath{\mu_\HH^\text{null}}\xspace}
+\providecommand{\muHHnull}{\ensuremath{\mu_\HH^\text{Asimov}}\xspace}
+
+\newcommand{\keV}{\ensuremath{\,\text{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\MeV}{\ensuremath{\,\text{Me\hspace{-.08em}V}}\xspace}
+\newcommand{\MeVns}{\ensuremath{\text{Me\hspace{-.08em}V}}\xspace} % no leading thinspace
+\newcommand{\GeV}{\ensuremath{\,\text{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\GeVns}{\ensuremath{\text{Ge\hspace{-.08em}V}}\xspace} % no leading thinspace
+\newcommand{\gev}{\GeV}
+\newcommand{\TeV}{\ensuremath{\,\text{Te\hspace{-.08em}V}}\xspace}
+\newcommand{\TeVns}{\ensuremath{\text{Te\hspace{-.08em}V}}\xspace} % no leading thinspace
+\newcommand{\PeV}{\ensuremath{\,\text{Pe\hspace{-.08em}V}}\xspace}
+\newcommand{\keVc}{\ensuremath{{\,\text{ke\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\MeVc}{\ensuremath{{\,\text{Me\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\GeVc}{\ensuremath{{\,\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\GeVcns}{\ensuremath{{\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace} % no leading thinspace
+\newcommand{\TeVc}{\ensuremath{{\,\text{Te\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\keVcc}{\ensuremath{{\,\text{ke\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\MeVcc}{\ensuremath{{\,\text{Me\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\GeVcc}{\ensuremath{{\,\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\GeVccns}{\ensuremath{{\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace} % no leading thinspace
+\newcommand{\TeVcc}{\ensuremath{{\,\text{Te\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+
+\newcommand{\abinv} {\mbox{\ensuremath{\,\text{ab}^{-1}}}\xspace}
+\newcommand{\fbinv} {\mbox{\ensuremath{\,\text{fb}^{-1}}}\xspace}
+\newcommand{\pbinv} {\mbox{\ensuremath{\,\text{pb}^{-1}}}\xspace}
+\newcommand{\nbinv} {\mbox{\ensuremath{\,\text{nb}^{-1}}}\xspace}
+\newcommand{\mubinv} {\ensuremath{\,\mu\text{b}^{-1}}\xspace}
+\newcommand{\mbinv} {\ensuremath{\,\text{mb}^{-1}}\xspace}
+\newcommand{\percms}{\ensuremath{\,\text{cm}^{-2}\,\text{s}^{-1}}\xspace}
+\newcommand{\lumi}{\ensuremath{\mathcal{L}}\xspace}
+\newcommand{\Lumi}{\ensuremath{\mathcal{L}}\xspace}%both upper and lower
+
+\newcommand{\PT}{\ensuremath{p_{\mathrm{T}}}\xspace}
+\newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
+\newcommand{\ET}{\ensuremath{E_{\mathrm{T}}}\xspace}
+\newcommand{\HT}{\ensuremath{H_{\mathrm{T}}}\xspace}
+\newcommand{\mT}{\ensuremath{m_{\mathrm{T}}}\xspace}
+\newcommand{\mTii}{\ensuremath{m_{\mathrm{T2}}}\xspace}
+\newcommand{\et}{\ensuremath{E_{\mathrm{T}}}\xspace}
+\newcommand{\Em}{\ensuremath{E\hspace{-0.6em}/}\xspace}
+\newcommand{\Pm}{\ensuremath{p\hspace{-0.5em}/}\xspace}
+\newcommand{\PTm}{\ensuremath{{p}_\mathrm{T}\hspace{-1.02em}/\kern 0.5em}\xspace}
+\newcommand{\PTslash}{\PTm}
+\newcommand{\ETm}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\MET}{\ETm}
+\newcommand{\ETmiss}{\ETm}
+\newcommand{\ptmiss}{\ensuremath{\pt^\text{miss}}\xspace}
+\newcommand{\ETslash}{\ensuremath{E_{\mathrm{T}}\hspace{-1.1em}/\kern0.45em}\xspace}
+\newcommand{\VEtmiss}{\ensuremath{{\vec E}_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\ptvec}{\ensuremath{{\vec p}_{\mathrm{T}}}\xspace}
+\newcommand{\ptvecmiss}{\ensuremath{{\vec p}_{\mathrm{T}}^{\kern1pt\text{miss}}}\xspace}
+\newcommand{\tauh}{\ensuremath{\PGt_\mathrm{h}}\xspace}
+\newcommand{\sqrtsNN}{\ensuremath{\sqrt{\smash[b]{s_{_{\mathrm{NN}}}}}}\xspace}
+\newcommand{\mht}{\ensuremath{H_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\htvecmiss}{\ensuremath{\vec{H}_{\text{T}}^{\text{miss}}}\xspace}

@@ -1,0 +1,196 @@
+% =========================================================================
+% SciPost LaTeX template
+% Version 2024-07
+%
+% Submissions to SciPost Journals should make use of this template.
+% ========================================================================
+
+\documentclass{SciPost}
+
+% Prevent all line breaks in inline equations.
+\binoppenalty=10000
+\relpenalty=10000
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage{heppennames2}
+\usepackage{feynmp-auto}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\definecolor{cat1}{RGB}{87,144,252} % #5790fc
+\definecolor{cat2}{RGB}{248,156,32} % #f89c20
+\definecolor{cat3}{RGB}{228,37,54} % #e42536
+\definecolor{cat4}{RGB}{150,74,139} % #964a8b
+\definecolor{cat6}{RGB}{122,33,221} % #7a21dd
+\urlstyle{same}
+
+% Fix \cal and \mathcal characters look (so it's not the same as \mathscr)
+\DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
+
+\fancypagestyle{SPstyle}{
+\fancyhf{}
+\lhead{\colorbox{scipostblue}{\bf \color{white} ~SciPost Physics Community Reports }}
+\rhead{{\bf \color{scipostdeepblue} ~Submission }}
+\renewcommand{\headrulewidth}{1pt}
+\fancyfoot[C]{\textbf{\thepage}}
+}
+
+\begin{document}
+\input{Definitions}
+
+% Several section titles use the process/coupling macros defined above, which
+% expand to math-mode particle symbols that hyperref cannot put into a PDF
+% bookmark. Give hyperref a plain-text spelling for each of them.
+\pdfstringdefDisableCommands{%
+  \def\HH{HH}%
+  \def\ggHH{ggHH}%
+  \def\mHH{mHH}%
+}
+
+\pagestyle{SPstyle}
+
+\begin{center}{\Large \textbf{\color{scipostdeepblue}{
+Modeling gluon-fusion Di-Higgs signal in SMEFT using the event-level reweighting and matrix method in LHC\\
+}}}\end{center}
+
+\begin{center}\textbf{
+Alexandra Carvalho\textsuperscript{1$\star$},
+Flavia de Almeida Dias\textsuperscript{2$\dagger$},
+Jonathon Langford\textsuperscript{3$\ddagger$},
+Spyros Merianos\textsuperscript{4$\circ$},
+Agni Bethani\textsuperscript{4$\S$},
+Matheus Coelho\textsuperscript{5$\P$} and
+Pedro G. Mercadante\textsuperscript{5$\parallel$} 
+}\end{center}
+
+\begin{center}
+{\bf 1} State Key Laboratory of Nuclear Physics and Technology, Peking University, Beijing, China
+\\
+{\bf 2} University of Amsterdam / Nikhef, Amsterdam, The Netherlands
+\\
+{\bf 3} ADD
+\\
+{\bf 4} Université catholique de Louvain, Louvain-la-Neuve, Belgium
+\\
+{\bf 5} São Paulo Research and Analysis Center, São Paulo, Brazil
+\\[\baselineskip]
+$\star$ \href{mailto:alexandra.oliveira@cern.ch}{\small alexandra.oliveira@cern.ch}\,,\quad
+$\dagger$ \href{mailto:flavia.dias@cern.ch}{\small flavia.dias@cern.ch}\,,\quad\\
+$\ddagger$ \href{mailto:JON@cern.ch}{\small JON@cern.ch}\,,\quad
+$\circ$ \href{mailto:spyros.merianos@cern.ch}{\small spyros.merianos@cern.ch}\,,\quad\\
+$\S$ \href{mailto:Agni.Bethani@cern.ch}{\small Agni.Bethani@cern.ch}\,,\quad
+$\P$ \href{mailto:matheus.pereira.coelho@cern.ch}{\small matheus.pereira.coelho@cern.ch}\,,\quad\\
+$\parallel$ \href{mailto:pedro.mercadante@cern.ch}{\small pedro.mercadante@cern.ch}\,,\quad\\
+$\ast$ \href{mailto:eboli@if.usp.br}{\small eboli@if.usp.br}
+\end{center}
+
+\input{sections/abstract}
+
+\vspace{\baselineskip}
+
+%%%%%%%%%% BLOCK: Copyright information
+\noindent\textcolor{white!90!black}{%
+\fbox{\parbox{0.975\linewidth}{%
+\textcolor{white!40!black}{\begin{tabular}{lr}%
+  \begin{minipage}{0.6\textwidth}%
+    {\small Copyright attribution to authors. \newline
+    This work is a submission to SciPost Phys. Comm. Rep. \newline
+    License information to appear upon publication. \newline
+    Publication information to appear upon publication.}
+  \end{minipage} & \begin{minipage}{0.4\textwidth}
+    {\small Received Date \newline Accepted Date \newline Published Date}%
+  \end{minipage}
+\end{tabular}}
+}}
+}
+%%%%%%%%%% BLOCK: Copyright information
+
+\linenumbers
+
+\vspace{10pt}
+\noindent\rule{\textwidth}{1pt}
+\tableofcontents
+\noindent\rule{\textwidth}{1pt}
+\vspace{10pt}
+
+\clearpage
+\input{sections/intro}
+
+\clearpage
+\input{sections/smeft_framework}
+
+\clearpage
+\input{sections/parameterization}
+
+\clearpage
+\input{sections/simulation_setup}
+
+\clearpage
+\input{sections/elr_coefficients}
+
+
+
+\clearpage
+\input{sections/matrix_method}
+
+\clearpage
+\input{sections/validation}
+
+\clearpage
+\input{sections/validation_realistic}
+
+%\clearpage
+%\input{sections/energy_transport}
+
+\clearpage
+\input{sections/uncertainties}
+
+\clearpage
+\input{sections/truncation_modelling}
+
+\clearpage
+\input{sections/truncation}
+
+\clearpage
+\input{sections/rge}
+
+
+
+\clearpage
+\input{sections/conclusion}
+
+\clearpage
+\input{sections/acknowledgements}
+
+\begin{appendix}
+\numberwithin{equation}{section}
+
+%\input{sections/appendix_smeft_parameterization}
+
+%\input{sections/appendix_basis_parametrization}
+
+\clearpage
+%\input{sections/appendix_samples}
+\input{sections/appendix_9dvalidation}
+\input{sections/appendix_13tevValidation}
+\input{sections/appendix_exchange}
+
+\clearpage
+\input{sections/appendix_performance}
+
+\end{appendix}
+\clearpage
+% The bibliography style is already set by SciPost.cls.
+\bibliography{SciPost_Example_BiBTeX_File.bib}
+
+\nolinenumbers
+
+\end{document}

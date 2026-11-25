@@ -1,0 +1,117 @@
+\section{Introduction}
+\label{sec:intro}
+
+Double Higgs boson production is the process through which the shape of the Higgs
+potential is probed directly, and it is by now approaching the sensitivity needed to
+observe the Standard Model (SM) rate~\cite{ATLAS:2024ish,CMS_combination}. As that
+sensitivity is reached, the characterization of the signal becomes as important as its
+observation: deviations of the Higgs self-coupling alone are a rare possibility in
+nature, since new physics in the Higgs sector generally modifies several couplings at
+once~\cite{Durieux:2022hbu}, and each modification changes both the rate and the topology
+of the process.
+
+Among the effective field theory descriptions of these deviations, the Standard Model
+Effective Field Theory (SMEFT) is the more restrictive one, in that the \HH and
+single-Higgs couplings to fermions and gluons are correlated rather than independent. Its
+parameter space is nonetheless large, and it becomes larger once the subleading operators
+--- those entering only through loop-induced diagrams --- are included, as they must be
+for a consistent treatment at NLO QCD~\cite{Heinrich:2023rsd}. Simulating every point of
+that space, and processing every point through an experimental analysis, is not feasible.
+
+Two complementary techniques make the problem tractable, and this report applies both to
+\ggHH production in SMEFT with leading and subleading operators. The first is event-level
+reweighting (ELR), which parameterizes the differential cross section in the Wilson
+coefficients and transports a reference sample to any point of the parameter space,
+removing the need to simulate each point; we follow the technique established for the
+same process in Ref.~\cite{ELR_R5}. The second is the matrix method, which expresses the
+signal at any point as a linear combination of a fixed, minimal set of templates,
+removing the need to process each point through the analysis chain; here we follow the
+technique of Ref.~\cite{HH_nonggf_R5} rather than the one of Ref.~\cite{HHMatrix_R5}, the
+two differing in how the template basis is searched and scored, for the reasons given in
+Sec.~\ref{sec:matrix}.
+
+What the two give together is the subject of this report. The parameterization is solved
+on a basis of forty templates, every one of which lies in a plane in which a single pair
+of coefficients is varied, so that each template belongs to a plane the results are
+already presented in (Sec.~\ref{sec:matrix}). Three results follow from combining the two
+techniques on that basis, and each reduces what an analysis has to simulate, process or
+derive for itself.
+
+The first is the cost of the basis. Forty templates do not require forty simulated
+samples: each template can be built from a few generated samples by reweighting, combined
+bin by bin. Five samples are enough. Doing so reduces the median residual against the
+generated samples from $3.04\%$ to $2.03\%$ and the worst case from $70\%$ to $5\%$, and
+reaching the same precision by generating would take about eight hundred samples
+(Sec.~\ref{sec:validation_nsamples}).
+
+The second is the collision energy. A change of $\sqrt{s}$ acts on the initial state
+alone, so between nearby energies a grid can be transported with parton densities instead
+of being generated again. Measured against the points generated at both $13$ and
+$13.6$~TeV, the transport reproduces the spectrum to $0.2\%$ per bin below $1$~TeV once a
+single normalization constant is absorbed, and the $14$~TeV coefficients provided here
+are obtained that way. The step to $100$~TeV is not of that kind --- the spectrum extends
+to much higher \mHH and the relative weight of the diagrams shifts with it --- and the
+coefficients there are extracted from a grid generated at that energy
+(Sec.~\ref{sec:energy_transport}).
+
+The third is the uncertainty. The interpolation uncertainty of a morphed prediction
+separates into weights, which belong to the basis and are published once, and template
+errors, which belong to whichever analysis applies them. An analysis therefore obtains
+its own band from its own templates with nothing about the effective field theory
+re-derived; applied to two selections of the same \HHbbbb release the same weights give
+bands differing by a factor five to ten (Sec.~\ref{sec:validation_realistic_band}). The
+prescription is given with the covariance of the templates, which is the form a basis
+built by reweighting one set of events requires (Sec.~\ref{sec:uncertainties}).
+
+Three prescriptions complete what an \HH analysis needs in order to interpret its own
+result in the Wilson coefficients, without importing conventions from a single-Higgs
+combination. The order of the expansion is applied once to $\sigma\times\mathrm{BR}$ and
+not to its factors, which is a question of consistency rather than of convention and
+costs up to a factor of two at the edges of the coefficient ranges
+(Sec.~\ref{sec:trunc_product}). The range over which a chosen dimension-6 truncation is
+one an analysis would want is given per operator and per \mHH bin
+(Sec.~\ref{sec:trunc_convergence}). And $c_{\PH\mathrm{kin}}$ has a physical region:
+the linearly truncated partial widths stay positive only for
+$c_{\PH\mathrm{kin}}>-\Lambda^2/2v^2$, which is $-8.25$ at $\Lambda=1$~TeV and $-2.06$
+for the \HH triangle term, and an \HH analysis can constrain that coefficient with data
+it already has by giving its \ttH-enriched regions the same coefficient dependence as
+the signal (Sec.~\ref{sec:trunc_singleh}).
+
+The structure of the parameterization is also what allows a fit in one or two
+coefficients to drop most of the templates and run faster, at an unchanged result
+(Sec.~\ref{sec:slice_models}).
+
+Results are provided at four centre-of-mass energies. The $\sqrt{s}=13.6$~TeV results are
+the main results of this report, matching the ongoing LHC Run 3 programme. Results at
+$\sqrt{s}=13$~TeV are also provided, since a large number of analyses are still
+reinterpreting the LHC Run 2 dataset; they are so similar to the $13.6$~TeV ones that only
+the latter are shown in the figures, the $13$~TeV numbers being given with the ancillary
+material. Coefficients at $\sqrt{s}=14$~TeV are obtained by transport rather than from a
+grid of their own. Finally, results at $\sqrt{s}=100$~TeV are provided to enable
+feasibility studies for a future circular hadron collider such as
+FCC-hh~\cite{FCC:2018vvp}. \textcolor{red}{TODO: check the FCC-hh reference} The $13$ and
+$13.6$~TeV extractions share the same grid of generated points, the $13$~TeV one being a
+subset of the $13.6$~TeV one; the $100$~TeV extraction uses a grid of its own, with
+narrower coefficient ranges and coarser scans (Sec.~\ref{sec:grids}).
+
+Only the elements needed to make this report self-contained are repeated here; for the
+derivation and validation of the two techniques we refer to Refs.~\cite{ELR_R5}
+and~\cite{HH_nonggf_R5}.
+
+This report is organized as follows. Section~\ref{sec:framework} introduces the SMEFT
+operators considered and the diagrams they affect, and Sec.~\ref{sec:parameterization}
+gives the parameterization of the differential cross section and the reweighting formula.
+Section~\ref{sec:eventsimulation} describes the simulation setup and the generated grids,
+and Sec.~\ref{sec:extraction} the extraction of the $A$-coefficients.
+Section~\ref{sec:matrix} presents the matrix method, the restriction of the basis to the
+scan planes and the basis optimization itself. Section~\ref{sec:validation} validates
+both methods on the generated samples with no selection applied, and
+Sec.~\ref{sec:validation_realistic} under the selections of a public \HHbbbb analysis,
+where the number of templates a fit has to carry is also reduced.
+Section~\ref{sec:energy_transport} transports the parameterization to another collision
+energy and Sec.~\ref{sec:uncertainties} gives the uncertainty prescription. The last
+three sections concern the expansion rather than the machinery:
+Sec.~\ref{sec:trunc_modelling} shows that both routes reproduce a truncated prediction,
+Sec.~\ref{sec:truncation} bounds where the dimension-6 interpretation holds and how it
+meets a single-Higgs combination, and Sec.~\ref{sec:rge} states how the coefficients are
+run between scales. Section~\ref{sec:conclusion} summarizes.

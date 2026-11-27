@@ -14,9 +14,10 @@ $\pt^{\HH}$ event by event, the ELR can use them as an input to the multi-ref ap
 
 In order to explore the MM coverage of the full 9D parameter space in the SR, one can investigate the acceptance times efficiency provided by each topology by doing 1D scans for each of the Wilson coefficients, and then comparing the smooth interpolation given by the MM with the outcome obtained with the ELR evaluated in a few points of the scan. Figure~\ref{fig:acc_4b} shows how the selection efficiency varies as a function of each of the relevant Wilson coefficients, hinting which corners of the parameter space are favored according to each topology. This is then summarized on Table \ref{tab:acceptance_response}, which shows how each topology responds to variations in each Wilson coefficient. It can be noticed that the boosted selection zooms in on the coefficients that populate the high-mass tail (e.g., $c_{\text{HG}}$ and $c_{u\text{H}}$), while in the resolved case, a larger portion of the kinematic phase space is selected and the topology averages over different structures, therefore not strongly favoring some coefficients over others. Additionally, the impact of the chromomagnetic operator is similar to that of the leading operators, while the four-fermion operators indeed exhibit subtle changes in the acceptance, with $c^{(1)}_{\text{Qt}}$ and $c^{(8)}_{\text{Qt}}$ being nearly degenerated, and $c^{(8)}_{\text{QQ}}$ the least impactful.
 
-It must be noticed that an operator may change the cross section by a large factor and the acceptance not at all, meaning that the information extracted from Figure \ref{fig:acc_4b} and Table \ref{tab:acceptance_response} must be complemented with a notion about how the overall cross section behaves in the parameter space---It does not really matter if, for instance, the boosted topology has 100\% selection efficiency in a corner of the parameter space where the overall cross section is orders of magnitude smaller than in regions where the same selection has an acceptance times efficiency of 10\%.
+It must be noticed that an operator may change the cross section by a large factor and the acceptance not at all, meaning that the information extracted from Figure \ref{fig:acc_4b} and Table \ref{tab:acceptance_response} must be complemented with a notion about how the overall cross section behaves in the parameter space---It does not really matter if, for instance, the boosted topology has 100\% selection efficiency in a corner of the parameter space where the overall cross section is orders of magnitude smaller than in regions where the same selection has an acceptance times efficiency of 10\%. 
 
 
+Useful information can also be extracted from 2D slices between Wilson coefficients. Figure \ref{fig:planes} displays three planes: $c_\PH\mbox{--}c_{\PH\mathrm{kin}}$, shows a strong destructive interference pattern; $c_{\PH G}\mbox{--}c_{\PQt\PH}$, the plane with the better acceptance in the merged selection; $c_{\PH G}\mbox{--}c_{\PQt G}$, the stronger leading and subleading coefficients. Crosses indicate the BPs projected on the corresponding planes, and markers displaced along a vertical or horizontal asymptote at zero means that one of the Wilson coefficients is varying with other coefficient outside the plane. Planes like $c_{QQ\PQt\PQt}-c^{(8)}_{\text{Qt}}$ and $c_{\PQt G}-c_{Q\PQt}^{(1)}$ show homogeneity and weak correlations as one or both of the Wilson coefficients are hardly accessed.
 
 
 
@@ -122,8 +123,8 @@ with the other eight coefficients held at zero. %The ranges are those of
 %point lies far from the SM. The measurements behind this are in
 %Appendix~\ref{sec:appendix_linear_selection}.
 
-\subsection{Which operators a selected phase space is sensitive to}
-\label{sec:validation_subleading_role}
+%\subsection{Which operators a selected phase space is sensitive to}
+%\label{sec:validation_subleading_role}
 
 %Which Wilson coefficients change what an analysis measures is a property of the selection
 %as much as of the operators, and the two selections of the $\HH\to\bbbar\bbbar$ release
@@ -178,24 +179,24 @@ with the other eight coefficients held at zero. %The ranges are those of
 %renormalization-group running reaches the Higgs operators at all
 %(Sec.~\ref{sec:rge}).
 
-A scan through one coefficient holds the others at zero, which hides whatever two of them
-do jointly. Fig.~\ref{fig:planes} shows the acceptance
-over three planes: the two coefficients the merged selection responds to most strongly,
-the pair in which the cross section has its cancellation, and the strongest leading
-coefficient against the strongest subleading one. No plane is drawn with $c_{QQ\PQt\PQt}$
-or $c_{QQ}^{(8)}$, along which nothing happens, and none with $c_{\PQt G}$ against
-$c_{Q\PQt}^{(1)}$, which is vertical banding: the acceptance depends on the first and not
-on the second, as the one-dimensional scans already say. These are the only
-two-dimensional figures in this report, and they are affordable because the acceptance is
-evaluated from the basis: a plane costs model evaluations, not simulation.
+%A scan through one coefficient holds the others at zero, which hides whatever two of them
+%do jointly. Fig.~\ref{fig:planes} shows the acceptance
+%over three planes: the two coefficients the merged selection responds to most strongly,
+%the pair in which the cross section has its cancellation, and the strongest leading
+%coefficient against the strongest subleading one. No plane is drawn with $c_{QQ\PQt\PQt}$
+%or $c_{QQ}^{(8)}$, along which nothing happens, and none with $c_{\PQt G}$ against
+%$c_{Q\PQt}^{(1)}$, which is vertical banding: the acceptance depends on the first and not
+%on the second, as the one-dimensional scans already say. These are the only
+%two-dimensional figures in this report, and they are affordable because the acceptance is
+%evaluated from the basis: a plane costs model evaluations, not simulation.
 
-Two things about reading the figure. The merged panels are multiplied by ten and each row then
-shares one colour scale, so that colours may be compared across a row; without the
-scaling the two panels would be coloured on ranges a factor forty apart. And the crosses
-are the forty basis points projected on the plane --- their two coordinates in it, the
-other seven ignored --- so a cross marks where the basis constrains the surface read
-along those axes, not that a template was simulated at that point. Most of the forty have
-their two non-zero couplings elsewhere and project onto the axes of the plane.
+%Two things about reading the figure. The merged panels are multiplied by ten and each row then
+%shares one colour scale, so that colours may be compared across a row; without the
+%scaling the two panels would be coloured on ranges a factor forty apart. And the crosses
+%are the forty basis points projected on the plane --- their two coordinates in it, the
+%other seven ignored --- so a cross marks where the basis constrains the surface read
+%along those axes, not that a template was simulated at that point. Most of the forty have
+%their two non-zero couplings elsewhere and project onto the axes of the plane.
 
 \begin{figure}[p]
     \centering
